@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GiftHandler : MonoBehaviour {
+public class CandyCaneHandler : MonoBehaviour {
 
-	public float maxFallSpeed = 128f;
+	public float maxFallSpeed = 256f;
 	public float maxRotationSpeed = 64f;
-	public float timeToMaxFallSpeed = 2f;
+	public float timeToMaxFallSpeed = 1.5f;
 
 	GameDispatcherHandler dispatcher;
 	float fallSpeed = 1f;
@@ -42,7 +42,7 @@ public class GiftHandler : MonoBehaviour {
 
 	void OnTriggerEnter2D (Collider2D collidingObject) {
 		if (collidingObject.tag == "Player") {
-			dispatcher.Message("add-fill");
+			dispatcher.Message("add-dash");
 			Destroy(gameObject);
 		}
 	}

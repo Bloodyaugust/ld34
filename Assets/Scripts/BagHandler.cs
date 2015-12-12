@@ -3,22 +3,33 @@ using System.Collections;
 
 public class BagHandler : MonoBehaviour {
 
+	GameDispatcherHandler dispatcher;
 	string leftState = "IDLE";
 	string rightState = "IDLE";
 	float baseSpeed = Screen.width / 3f;
 	float currentDash = 0f;
-	float dashAmount = 1f;
+	public float dashAmount = 1f;
 	float dashCost = 0.33f;
 	float dashLength = 0.1f;
 	float dashSpeed = Screen.width / 0.3f;
 	float dashTrap = 0.2f;
+	public float fillAmount = 0f;
 	float lastLeft = 0f;
 	float lastRight = 0f;
+	float maxFillAmount = 100f;
 	float speedMultiplier = 1f;
+
+	public void AddDash (float amount) {
+		dashAmount += amount;
+	}
+
+	public void AddFill (float amount) {
+		fillAmount += amount;
+	}
 
 	// Use this for initialization
 	void Start () {
-
+		dispatcher = GameObject.FindWithTag("Dispatcher").GetComponent<GameDispatcherHandler>();
 	}
 
 	// Update is called once per frame

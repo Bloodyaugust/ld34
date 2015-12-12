@@ -52,7 +52,9 @@
      <Compile Include="Assets\Gamestrap UI\Helper Scripts\ToggleButtonIcon.cs" />
      <Compile Include="Assets\Scripts\BagHandler.cs" />
      <Compile Include="Assets\Scripts\CameraHandler.cs" />
+     <Compile Include="Assets\Scripts\CandyCaneHandler.cs" />
      <Compile Include="Assets\Scripts\GameCameraActions.cs" />
+     <Compile Include="Assets\Scripts\GameDispatcherHandler.cs" />
      <Compile Include="Assets\Scripts\GiftHandler.cs" />
      <Compile Include="Assets\Scripts\MainMenuActions.cs" />
      <Compile Include="Assets\Scripts\SpawnerHandler.cs" />
