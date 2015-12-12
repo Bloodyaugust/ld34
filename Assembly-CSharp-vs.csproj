@@ -53,7 +53,9 @@
      <Compile Include="Assets\Scripts\BagHandler.cs" />
      <Compile Include="Assets\Scripts\CameraHandler.cs" />
      <Compile Include="Assets\Scripts\GameCameraActions.cs" />
+     <Compile Include="Assets\Scripts\GiftHandler.cs" />
      <Compile Include="Assets\Scripts\MainMenuActions.cs" />
+     <Compile Include="Assets\Scripts\SpawnerHandler.cs" />
      <None Include="Assets\Gamestrap UI\Fonts\ubuntu\UBUNTU FONT LICENCE.txt" />
      <None Include="Assets\Gamestrap UI\Fonts\Bebas\Flat-it License.txt" />
      <None Include="Assets\Shaders\ColorReplace.shader" />

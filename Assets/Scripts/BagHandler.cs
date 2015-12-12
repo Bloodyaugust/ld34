@@ -11,7 +11,7 @@ public class BagHandler : MonoBehaviour {
 	float dashCost = 0.33f;
 	float dashLength = 0.1f;
 	float dashSpeed = Screen.width / 0.3f;
-	float dashTrap = 0.5f;
+	float dashTrap = 0.2f;
 	float lastLeft = 0f;
 	float lastRight = 0f;
 	float speedMultiplier = 1f;
