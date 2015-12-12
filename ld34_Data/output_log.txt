@@ -1,0 +1,31 @@
+Initialize engine version: 5.1.1f1 (2046fc06d4d8)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: AMD Radeon R9 200 Series (ID=0x67b1)
+    Vendor:   ATI
+    VRAM:     3072 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Code\ld34\ld34_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Code\ld34\ld34_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Code\ld34\ld34_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Code\ld34\ld34_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Code\ld34\ld34_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Code\ld34\ld34_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Code\ld34\ld34_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Code\ld34\ld34_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Code\ld34\ld34_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Code\ld34\ld34_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.033 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+desktop: 1680x1050 60Hz; virtual: 3360x1050 at 0,0
+<RI> Initialized touch support.
+Platform assembly: C:\Code\ld34\ld34_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Code\ld34\ld34_Data\Managed\System.dll (this message is harmless)
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.999904 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 148.
+Total: 0.144707 ms (FindLiveObjects: 0.013182 ms CreateObjectMapping: 0.017976 ms MarkObjects: 0.110552 ms  DeleteObjects: 0.002097 ms)
+
