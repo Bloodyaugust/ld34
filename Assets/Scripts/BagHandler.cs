@@ -14,7 +14,7 @@ public class BagHandler : MonoBehaviour {
 	public float fillAmount = 0f;
 	float lastLeft = 0f;
 	float lastRight = 0f;
-	float maxFillAmount = 1f;
+	float maxFillAmount = 12f;
 	float speedMultiplier = 1f;
 	int dashCost = 1;
 	public int coal = 0;
