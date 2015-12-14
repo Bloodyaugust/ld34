@@ -4,13 +4,19 @@ using System.Collections;
 
 public class GameDispatcherHandler : MonoBehaviour {
 
+	public GameObject gameOverPanel;
 	public Image[] candyCanes;
 	public Image[] coalImages;
+	public Text[] highscoresText;
 	public Text scoreText;
+	public Text multiplierText;
 	public float giftFillAmount = 0.5f;
 	public int score = 0;
 
 	BagHandler bag;
+	SpawnerHandler spawner;
+	float difficultyMultiplier = 1;
+	float scoreMultiplier = 1;
 	int coal = 0;
 	int dashes = 0;
 
@@ -27,6 +33,18 @@ public class GameDispatcherHandler : MonoBehaviour {
 			AddCoal();
 		}
 
+		if (message == "bag-full") {
+			BagFull();
+		}
+
+		if (message == "game-lose") {
+			GameLose();
+		}
+
+		if (message == "play-again") {
+			GameStart();
+		}
+
 		if (message == "remove-dash") {
 			RemoveDash();
 		}
@@ -40,6 +58,7 @@ public class GameDispatcherHandler : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		bag = GameObject.FindWithTag("Player").GetComponent<BagHandler>();
+		spawner = GameObject.FindWithTag("Spawner").GetComponent<SpawnerHandler>();
 
 		for (int i = 0; i < candyCanes.Length; i++) {
 			candyCanes[i].enabled = false;
@@ -47,6 +66,8 @@ public class GameDispatcherHandler : MonoBehaviour {
 		for (int i = 0; i < coalImages.Length; i++) {
 			coalImages[i].enabled = false;
 		}
+
+		GameStart();
 	}
 
 	// Update is called once per frame
@@ -75,8 +96,43 @@ public class GameDispatcherHandler : MonoBehaviour {
 	}
 
 	void AddScore (int amount) {
-		score += amount;
+		score += amount * (int)scoreMultiplier;
 		scoreText.text = "Score: " + score.ToString();
+	}
+
+	void BagFull () {
+		bag.ResetBag();
+
+		scoreMultiplier++;
+		difficultyMultiplier++;
+		multiplierText.text = "(x" + scoreMultiplier.ToString() + ")";
+		spawner.ResetSpawn(difficultyMultiplier);
+		spawner.SetSpawn(true);
+		gameOverPanel.SetActive(false);
+	}
+
+	void GameLose () {
+		scoreMultiplier = 1;
+		difficultyMultiplier = 1f;
+		spawner.SetSpawn(false);
+		gameOverPanel.SetActive(true);
+	}
+
+	void GameStart () {
+		dashes = 0;
+		coal = 0;
+		for (int i = 0; i < coalImages.Length; i++) {
+			coalImages[i].enabled = false;
+		}
+		for (int i = 0; i < candyCanes.Length; i++) {
+			candyCanes[i].enabled = false;
+		}
+		bag.NewBag();
+
+		multiplierText.text = "(x" + scoreMultiplier.ToString() + ")";
+		spawner.SetSpawn(true);
+		spawner.ResetSpawn(difficultyMultiplier);
+		gameOverPanel.SetActive(false);
 	}
 
 	void RemoveDash() {

@@ -14,7 +14,7 @@ public class BagHandler : MonoBehaviour {
 	public float fillAmount = 0f;
 	float lastLeft = 0f;
 	float lastRight = 0f;
-	float maxFillAmount = 100f;
+	float maxFillAmount = 1f;
 	float speedMultiplier = 1f;
 	int dashCost = 1;
 	public int coal = 0;
@@ -31,6 +31,16 @@ public class BagHandler : MonoBehaviour {
 
 	public void AddFill (float amount) {
 		fillAmount += amount;
+	}
+
+	public void ResetBag() {
+		fillAmount = 0f;
+	}
+
+	public void NewBag() {
+		fillAmount = 0;
+		coal = 0;
+		dashes = 0;
 	}
 
 	// Use this for initialization
@@ -111,6 +121,14 @@ public class BagHandler : MonoBehaviour {
 			boundedLocation.y = 0;
 			boundedLocation.z = 0;
 			transform.position = boundedLocation;
+		}
+
+		if (fillAmount >= maxFillAmount) {
+			dispatcher.Message("bag-full");
+		}
+
+		if (coal >= coalMax) {
+			dispatcher.Message("game-lose");
 		}
 	}
 }

@@ -6,15 +6,38 @@ public class SpawnerHandler : MonoBehaviour {
 	public GameObject candyCanePrefab;
 	public GameObject coalPrefab;
 	public GameObject giftPrefab;
+	public float baseMaxSpawnRate = 0.8f;
 	public float maxSpawnRate = 0.3f;
 	public float minSpawnRate = 1.5f;
+	public float baseSpawnRateCandyCane = 0.2f;
 	public float spawnRateCandyCane = 0.2f;
+	public float baseSpawnRateCoal = 0.1f;
 	public float spawnRateCoal = 0.1f;
 	public float timeToMaxSpawnRate = 120f;
 
+	float difficultyModifier = 1f;
 	float spawnRate = 0f;
 	float timeSpawning = 0f;
 	float timeToNextSpawn = 0f;
+	string state = "SPAWN";
+
+	public void SetSpawn(bool spawnOn) {
+		if (spawnOn) {
+			state = "SPAWN";
+		} else {
+			state = "IDLE";
+		}
+	}
+
+	public void ResetSpawn (float diffMod) {
+		difficultyModifier = diffMod;
+		spawnRate = minSpawnRate;
+		maxSpawnRate = Mathf.Clamp(baseMaxSpawnRate - (difficultyModifier * 0.1f), 0.1f, baseMaxSpawnRate);
+		spawnRateCandyCane = Mathf.Clamp(baseSpawnRateCandyCane - (difficultyModifier * 0.05f), 0.05f, baseSpawnRateCandyCane);
+		spawnRateCoal = Mathf.Clamp(baseSpawnRateCoal + (difficultyModifier * 0.05f), 0.1f, 0.5f);
+		timeSpawning = 0f;
+		timeToNextSpawn = 0f;
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -23,18 +46,20 @@ public class SpawnerHandler : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		timeSpawning += Time.deltaTime;
-		timeToNextSpawn -= Time.deltaTime;
+		if (state != "IDLE") {
+			timeSpawning += Time.deltaTime;
+			timeToNextSpawn -= Time.deltaTime;
 
-		if (timeToNextSpawn <= 0) {
-			spawnRate = minSpawnRate - ((timeSpawning / timeToMaxSpawnRate) * (minSpawnRate - maxSpawnRate));
+			if (timeToNextSpawn <= 0) {
+				spawnRate = minSpawnRate - ((timeSpawning / timeToMaxSpawnRate) * (minSpawnRate - maxSpawnRate));
 
-			if (spawnRate < maxSpawnRate) {
-				spawnRate = maxSpawnRate;
+				if (spawnRate < maxSpawnRate) {
+					spawnRate = maxSpawnRate;
+				}
+
+				timeToNextSpawn = spawnRate;
+				Spawn();
 			}
-
-			timeToNextSpawn = spawnRate;
-			Spawn();
 		}
 	}
 

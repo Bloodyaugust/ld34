@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Dispatcher
+  - Spawner
   layers:
   - Default
   - TransparentFX
