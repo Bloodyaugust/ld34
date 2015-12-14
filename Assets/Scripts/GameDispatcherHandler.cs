@@ -41,6 +41,10 @@ public class GameDispatcherHandler : MonoBehaviour {
 			GameLose();
 		}
 
+		if (message == "main-menu") {
+			MainMenu();
+		}
+
 		if (message == "play-again") {
 			GameStart();
 		}
@@ -121,6 +125,7 @@ public class GameDispatcherHandler : MonoBehaviour {
 	void GameStart () {
 		dashes = 0;
 		coal = 0;
+		score = 0;
 		for (int i = 0; i < coalImages.Length; i++) {
 			coalImages[i].enabled = false;
 		}
@@ -130,9 +135,14 @@ public class GameDispatcherHandler : MonoBehaviour {
 		bag.NewBag();
 
 		multiplierText.text = "(x" + scoreMultiplier.ToString() + ")";
+		scoreText.text = "Score: " + score.ToString();
 		spawner.SetSpawn(true);
 		spawner.ResetSpawn(difficultyMultiplier);
 		gameOverPanel.SetActive(false);
+	}
+
+	void MainMenu () {
+		Application.LoadLevel("MainMenu");
 	}
 
 	void RemoveDash() {
