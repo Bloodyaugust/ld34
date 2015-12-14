@@ -43,6 +43,7 @@ public class CandyCaneHandler : MonoBehaviour {
 	void OnTriggerEnter2D (Collider2D collidingObject) {
 		if (collidingObject.tag == "Player") {
 			dispatcher.Message("add-dash");
+			dispatcher.Message("add-score", 10);
 			Destroy(gameObject);
 		}
 	}

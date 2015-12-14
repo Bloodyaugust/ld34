@@ -45,6 +45,7 @@ public class GiftHandler : MonoBehaviour {
 	void OnTriggerEnter2D (Collider2D collidingObject) {
 		if (collidingObject.tag == "Player") {
 			dispatcher.Message("add-fill");
+			dispatcher.Message("add-score", 2);
 			Destroy(gameObject);
 		}
 	}

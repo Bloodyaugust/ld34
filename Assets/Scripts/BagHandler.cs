@@ -60,6 +60,7 @@ public class BagHandler : MonoBehaviour {
 					leftState = "DASH";
 					currentDash = dashLength + Time.deltaTime;
 					dashes -= dashCost;
+					dispatcher.Message("remove-dash");
 				}
 				lastLeft = Time.time;
 			}
@@ -70,6 +71,7 @@ public class BagHandler : MonoBehaviour {
 					rightState = "DASH";
 					currentDash = dashLength + Time.deltaTime;
 					dashes -= dashCost;
+					dispatcher.Message("remove-dash");
 				}
 				lastRight = Time.time;
 			}
