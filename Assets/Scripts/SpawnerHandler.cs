@@ -4,9 +4,10 @@ using System.Collections;
 public class SpawnerHandler : MonoBehaviour {
 
 	public GameObject candyCanePrefab;
+	public GameObject coalPrefab;
 	public GameObject giftPrefab;
 	public float maxSpawnRate = 0.3f;
-	public float minSpawnRate = 3f;
+	public float minSpawnRate = 1.5f;
 	public float spawnRateCandyCane = 0.2f;
 	public float spawnRateCoal = 0.1f;
 	public float timeToMaxSpawnRate = 120f;
@@ -41,11 +42,11 @@ public class SpawnerHandler : MonoBehaviour {
 		float spawnDecider = Random.value;
 
 		if (spawnDecider <= spawnRateCoal) {
-			//spawn coal
+			Instantiate(coalPrefab, Camera.main.ScreenToWorldPoint(new Vector3(Mathf.Clamp(Random.value * Screen.width, 16, Screen.width - 16), Screen.height + 16, 9)), Quaternion.identity);
 		} else if (spawnDecider > spawnRateCoal && spawnDecider <= spawnRateCoal + spawnRateCandyCane) {
-			Instantiate(candyCanePrefab, Camera.main.ScreenToWorldPoint(new Vector3(Random.value * Screen.width, Screen.height + 16, 9)), Quaternion.identity);
+			Instantiate(candyCanePrefab, Camera.main.ScreenToWorldPoint(new Vector3(Mathf.Clamp(Random.value * Screen.width, 16, Screen.width - 16), Screen.height + 16, 9)), Quaternion.identity);
 		} else {
-			Instantiate(giftPrefab, Camera.main.ScreenToWorldPoint(new Vector3(Random.value * Screen.width, Screen.height + 16, 9)), Quaternion.identity);
+			Instantiate(giftPrefab, Camera.main.ScreenToWorldPoint(new Vector3(Mathf.Clamp(Random.value * Screen.width, 16, Screen.width - 16), Screen.height + 16, 9)), Quaternion.identity);
 		}
 	}
 }

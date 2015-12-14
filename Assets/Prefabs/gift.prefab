@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3c1ca729585a9648be86414b64ee5e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxFallSpeed: 128
+  maxFallSpeed: 512
   maxRotationSpeed: 64
   timeToMaxFallSpeed: 2
 --- !u!212 &21235416

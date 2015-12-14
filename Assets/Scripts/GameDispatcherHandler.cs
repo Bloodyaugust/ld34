@@ -3,7 +3,6 @@ using System.Collections;
 
 public class GameDispatcherHandler : MonoBehaviour {
 
-	public float candyCaneDashAmount = 0.33f;
 	public float giftFillAmount = 0.5f;
 
 	BagHandler bag;
@@ -15,6 +14,10 @@ public class GameDispatcherHandler : MonoBehaviour {
 
 		if (message == "add-fill") {
 			AddFill();
+		}
+
+		if (message == "add-coal") {
+			AddCoal();
 		}
 	}
 
@@ -28,8 +31,12 @@ public class GameDispatcherHandler : MonoBehaviour {
 
 	}
 
+	void AddCoal () {
+		bag.AddCoal(1);
+	}
+
 	void AddDash () {
-		bag.AddDash(candyCaneDashAmount);
+		bag.AddDash(1);
 	}
 
 	void AddFill () {

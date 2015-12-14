@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\BagHandler.cs" />
      <Compile Include="Assets\Scripts\CameraHandler.cs" />
      <Compile Include="Assets\Scripts\CandyCaneHandler.cs" />
+     <Compile Include="Assets\Scripts\CoalHandler.cs" />
      <Compile Include="Assets\Scripts\GameCameraActions.cs" />
      <Compile Include="Assets\Scripts\GameDispatcherHandler.cs" />
      <Compile Include="Assets\Scripts\GiftHandler.cs" />

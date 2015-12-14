@@ -6,10 +6,8 @@ public class BagHandler : MonoBehaviour {
 	GameDispatcherHandler dispatcher;
 	string leftState = "IDLE";
 	string rightState = "IDLE";
-	float baseSpeed = Screen.width / 3f;
+	float baseSpeed = Screen.width / 1.5f;
 	float currentDash = 0f;
-	public float dashAmount = 1f;
-	float dashCost = 0.33f;
 	float dashLength = 0.1f;
 	float dashSpeed = Screen.width / 0.3f;
 	float dashTrap = 0.2f;
@@ -18,9 +16,17 @@ public class BagHandler : MonoBehaviour {
 	float lastRight = 0f;
 	float maxFillAmount = 100f;
 	float speedMultiplier = 1f;
+	int dashCost = 1;
+	public int coal = 0;
+	public int coalMax = 3;
+	public int dashes = 0;
 
-	public void AddDash (float amount) {
-		dashAmount += amount;
+	public void AddCoal (int amount) {
+		coal += amount;
+	}
+
+	public void AddDash (int amount) {
+		dashes += amount;
 	}
 
 	public void AddFill (float amount) {
@@ -50,20 +56,20 @@ public class BagHandler : MonoBehaviour {
 			if (Input.GetKeyDown("left") || Input.GetKeyDown("a")) {
 				leftState = "ACTIVE";
 
-				if (Time.time - dashTrap <= lastLeft && dashAmount >= dashCost) {
+				if (Time.time - dashTrap <= lastLeft && dashes >= dashCost) {
 					leftState = "DASH";
 					currentDash = dashLength + Time.deltaTime;
-					dashAmount -= dashCost;
+					dashes -= dashCost;
 				}
 				lastLeft = Time.time;
 			}
 			if (Input.GetKeyDown("right") || Input.GetKeyDown("d")) {
 				rightState = "ACTIVE";
 
-				if (Time.time - dashTrap <= lastRight && dashAmount >= dashCost) {
+				if (Time.time - dashTrap <= lastRight && dashes >= dashCost) {
 					rightState = "DASH";
 					currentDash = dashLength + Time.deltaTime;
-					dashAmount -= dashCost;
+					dashes -= dashCost;
 				}
 				lastRight = Time.time;
 			}

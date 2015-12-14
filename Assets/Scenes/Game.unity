@@ -126,6 +126,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 129414, guid: eef0888c303825e4f9506b20a927b2e3, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eef0888c303825e4f9506b20a927b2e3, type: 2}
   m_IsPrefabParent: 0
@@ -265,9 +269,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 483d08c85e08bf84b9bfd4417d036b91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  candyCanePrefab: {fileID: 171022, guid: b3c9640d757d6cd438d63bbf340893e9, type: 2}
+  coalPrefab: {fileID: 183766, guid: be51d7d41920285478576627a118b2e0, type: 2}
   giftPrefab: {fileID: 144184, guid: e990c232586e5334d8fc8ca6f1e270c9, type: 2}
   maxSpawnRate: .300000012
-  minSpawnRate: 5
+  minSpawnRate: 1.5
+  spawnRateCandyCane: .200000003
+  spawnRateCoal: .100000001
   timeToMaxSpawnRate: 120
 --- !u!4 &1394066822
 Transform:
@@ -289,9 +297,10 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1448036865}
+  - 114: {fileID: 1448036866}
   m_Layer: 0
   m_Name: Dispatcher
-  m_TagString: Untagged
+  m_TagString: Dispatcher
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -308,3 +317,15 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!114 &1448036866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1448036864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12cca74db5d359941a223f48ad227e9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  giftFillAmount: .5
