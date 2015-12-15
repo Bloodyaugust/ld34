@@ -71,6 +71,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3c1ca729585a9648be86414b64ee5e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  giftImages:
+  - {fileID: 21300000, guid: 8d38798093bdff04684623526be4a90e, type: 3}
+  - {fileID: 21300000, guid: 03ce90e3929b5be4686a6aa8212dd3b3, type: 3}
+  - {fileID: 21300000, guid: bf818096d67994746abb5b8ff1c424e3, type: 3}
+  - {fileID: 21300000, guid: 82fc54cea77c49245b60c53434c3a616, type: 3}
   maxFallSpeed: 512
   maxRotationSpeed: 64
   timeToMaxFallSpeed: 2
@@ -107,6 +112,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: giftImages.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.x
       value: 0

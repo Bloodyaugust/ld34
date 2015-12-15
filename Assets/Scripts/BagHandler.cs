@@ -62,7 +62,7 @@ public class BagHandler : MonoBehaviour {
 	void Update () {
 		Vector3 boundedLocation = new Vector3(0, transform.position.y, transform.position.z);
 		float translation = 0;
-		int bagFillStage = (int)Mathf.Clamp(Mathf.Round((fillAmount / maxFillAmount) * 8), 0, 8);
+		int bagFillStage = (int)Mathf.Clamp(Mathf.Round((fillAmount / maxFillAmount) * 7), 0, 7);
 
 		if (Input.GetKeyUp("left") || Input.GetKeyUp("a")) {
 			leftState = "IDLE";

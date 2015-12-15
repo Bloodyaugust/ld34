@@ -1,13 +1,16 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class GiftHandler : MonoBehaviour {
 
+	public Sprite[] giftImages;
 	public float maxFallSpeed = 256f;
 	public float maxRotationSpeed = 64f;
 	public float timeToMaxFallSpeed = 2f;
 
 	GameDispatcherHandler dispatcher;
+	SpriteRenderer giftSprite;
 	float fallScalar = 0f;
 	float fallSpeed = 1f;
 	float timeFalling = 0f;
@@ -16,6 +19,8 @@ public class GiftHandler : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		int selectedSprite = (int)(Random.value * (float)giftImages.Length);
+
 		rotationSpeed = Random.value * maxRotationSpeed;
 
 		if (Random.value <= 0.5f) {
@@ -25,6 +30,9 @@ public class GiftHandler : MonoBehaviour {
 		}
 
 		dispatcher = GameObject.FindWithTag("Dispatcher").GetComponent<GameDispatcherHandler>();
+		giftSprite = gameObject.GetComponent<SpriteRenderer>();
+
+		giftSprite.sprite = giftImages[selectedSprite];
 	}
 
 	// Update is called once per frame
