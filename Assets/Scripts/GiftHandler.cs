@@ -19,7 +19,7 @@ public class GiftHandler : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		int selectedSprite = (int)(Random.value * (float)giftImages.Length);
+		int selectedSprite = (int)(Random.value * (float)(giftImages.Length - 1));
 
 		rotationSpeed = Random.value * maxRotationSpeed;
 

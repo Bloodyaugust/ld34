@@ -6,6 +6,7 @@ public class SpawnerHandler : MonoBehaviour {
 	public GameObject candyCanePrefab;
 	public GameObject coalPrefab;
 	public GameObject giftPrefab;
+	public GameObject snowflakePrefab;
 	public float baseMaxSpawnRate = 0.8f;
 	public float maxSpawnRate = 0.3f;
 	public float minSpawnRate = 1.5f;
@@ -14,6 +15,8 @@ public class SpawnerHandler : MonoBehaviour {
 	public float baseSpawnRateCoal = 0.1f;
 	public float spawnRateCoal = 0.1f;
 	public float timeToMaxSpawnRate = 120f;
+	public float lastSnowflakeSpawn = 0f;
+	public float snowflakeSpawnInterval = 0.2f;
 
 	float difficultyModifier = 1f;
 	float spawnRate = 0f;
@@ -49,6 +52,7 @@ public class SpawnerHandler : MonoBehaviour {
 		if (state != "IDLE") {
 			timeSpawning += Time.deltaTime;
 			timeToNextSpawn -= Time.deltaTime;
+			lastSnowflakeSpawn += Time.deltaTime;
 
 			if (timeToNextSpawn <= 0) {
 				spawnRate = minSpawnRate - ((timeSpawning / timeToMaxSpawnRate) * (minSpawnRate - maxSpawnRate));
@@ -59,6 +63,11 @@ public class SpawnerHandler : MonoBehaviour {
 
 				timeToNextSpawn = spawnRate;
 				Spawn();
+			}
+
+			if (lastSnowflakeSpawn >= snowflakeSpawnInterval) {
+				lastSnowflakeSpawn = 0f;
+				Instantiate(snowflakePrefab, Camera.main.ScreenToWorldPoint(new Vector3(Mathf.Clamp(Random.value * Screen.width, 16, Screen.width - 16), Screen.height + 16, 9)), Quaternion.identity);
 			}
 		}
 	}
