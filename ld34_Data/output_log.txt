@@ -16,7 +16,7 @@ Platform assembly: C:\Code\ld34\ld34_Data\Managed\UnityEngine.Networking.dll (th
 Loading C:\Code\ld34\ld34_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Code\ld34\ld34_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading C:\Code\ld34\ld34_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.033 seconds
+- Completed reload, in  0.038 seconds
 <RI> Initializing input.
 <RI> Input initialized.
 desktop: 1680x1050 60Hz; virtual: 3360x1050 at 0,0
@@ -24,8 +24,8 @@ desktop: 1680x1050 60Hz; virtual: 3360x1050 at 0,0
 Platform assembly: C:\Code\ld34\ld34_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Code\ld34\ld34_Data\Managed\System.dll (this message is harmless)
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 2.999904 ms
+UnloadTime: 3.265678 ms
 
-Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 148.
-Total: 0.144707 ms (FindLiveObjects: 0.013182 ms CreateObjectMapping: 0.017976 ms MarkObjects: 0.110552 ms  DeleteObjects: 0.002097 ms)
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 291.
+Total: 0.215414 ms (FindLiveObjects: 0.013781 ms CreateObjectMapping: 0.007789 ms MarkObjects: 0.189049 ms  DeleteObjects: 0.004194 ms)
 
