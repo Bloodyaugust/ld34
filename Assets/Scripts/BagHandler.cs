@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class BagHandler : MonoBehaviour {
 
+	public Sprite[] bagImages;
+
 	GameDispatcherHandler dispatcher;
+	SpriteRenderer bagSprite;
 	string leftState = "IDLE";
 	string rightState = "IDLE";
 	float baseSpeed = Screen.width / 1.5f;
@@ -16,6 +20,7 @@ public class BagHandler : MonoBehaviour {
 	float lastRight = 0f;
 	float maxFillAmount = 12f;
 	float speedMultiplier = 1f;
+	int currentSprite = 0;
 	int dashCost = 1;
 	public int coal = 0;
 	public int coalMax = 3;
@@ -35,9 +40,13 @@ public class BagHandler : MonoBehaviour {
 
 	public void ResetBag() {
 		fillAmount = 0f;
+		currentSprite = 0;
+		bagSprite.sprite = bagImages[0];
 	}
 
 	public void NewBag() {
+		currentSprite = 0;
+		bagSprite.sprite = bagImages[0];
 		fillAmount = 0;
 		coal = 0;
 		dashes = 0;
@@ -46,12 +55,14 @@ public class BagHandler : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		dispatcher = GameObject.FindWithTag("Dispatcher").GetComponent<GameDispatcherHandler>();
+		bagSprite = gameObject.GetComponent<SpriteRenderer>();
 	}
 
 	// Update is called once per frame
 	void Update () {
 		Vector3 boundedLocation = new Vector3(0, transform.position.y, transform.position.z);
 		float translation = 0;
+		int bagFillStage = (int)Mathf.Clamp(Mathf.Round((fillAmount / maxFillAmount) * 8), 0, 8);
 
 		if (Input.GetKeyUp("left") || Input.GetKeyUp("a")) {
 			leftState = "IDLE";
@@ -121,6 +132,11 @@ public class BagHandler : MonoBehaviour {
 			boundedLocation.y = 0;
 			boundedLocation.z = 0;
 			transform.position = boundedLocation;
+		}
+
+		if (bagFillStage != currentSprite) {
+			currentSprite = bagFillStage;
+			bagSprite.sprite = bagImages[currentSprite];
 		}
 
 		if (fillAmount >= maxFillAmount) {
