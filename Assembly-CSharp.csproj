@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\GameDispatcherHandler.cs" />
      <Compile Include="Assets\Scripts\GiftHandler.cs" />
      <Compile Include="Assets\Scripts\MainMenuActions.cs" />
+     <Compile Include="Assets\Scripts\SettingsHandler.cs" />
      <Compile Include="Assets\Scripts\SpawnerHandler.cs" />
      <None Include="Assets\Gamestrap UI\Fonts\ubuntu\UBUNTU FONT LICENCE.txt" />
      <None Include="Assets\Gamestrap UI\Fonts\Bebas\Flat-it License.txt" />

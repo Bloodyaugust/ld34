@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Dispatcher
   - Spawner
+  - MusicButton
+  - SFXButton
   layers:
   - Default
   - TransparentFX
