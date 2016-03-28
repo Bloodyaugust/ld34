@@ -7,6 +7,6 @@ Assets/AssetStoreTools*
 missilewar_Data
 WebBuild
 Builds
-.csproj
-.sln
+*.csproj
+*.sln
 Gamestrap*
